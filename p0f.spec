@@ -22,10 +22,9 @@ URL: http://lcamtuf.coredump.cx/p0f.shtml
 BuildRoot: %{_tmppath}/%{name}-buildroot
 BuildRequires: libpcap-devel
 Requires: chkconfig
-Requires: fileutils
+Requires: coreutils
 Requires: grep
 Requires: awk
-Requires: sh-utils
 Requires(post): rpm-helper
 Requires(preun): rpm-helper
 
