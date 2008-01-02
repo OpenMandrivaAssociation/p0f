@@ -19,6 +19,7 @@ Source0: http://lcamtuf.coredump.cx/p0f/%{name}-%{version}.tar.bz2
 Source1: %{name}.init.mdk.bz2
 Source2: %{name}.sysconfig.bz2
 URL: http://lcamtuf.coredump.cx/p0f.shtml
+BuildRoot: %{_tmppath}/%{name}-buildroot
 BuildRequires: libpcap-devel
 Requires: chkconfig
 Requires: coreutils
