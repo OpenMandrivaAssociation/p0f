@@ -1,6 +1,6 @@
 %define name p0f
 %define version 2.0.8
-%define release %mkrel 4
+%define release %mkrel 5
 %define daemon %{name}d
 
 # TODO
@@ -19,7 +19,7 @@ Source0: http://lcamtuf.coredump.cx/p0f/%{name}-%{version}.tar.bz2
 Source1: %{name}.init.mdk.bz2
 Source2: %{name}.sysconfig.bz2
 URL: http://lcamtuf.coredump.cx/p0f.shtml
-BuildRoot: %{_tmppath}/%{name}-buildroot
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires: libpcap-devel
 Requires: chkconfig
 Requires: coreutils
