@@ -1,6 +1,6 @@
 %define name p0f
 %define version 2.0.8
-%define release %mkrel 5
+%define release %mkrel 6
 %define daemon %{name}d
 
 # TODO
@@ -36,20 +36,20 @@ active scanners (nmap, queSO) - it is done without sending anything to
 this host.
 
 %prep
-rm -Rf $RPM_BUILD_ROOT
+rm -Rf %{buildroot}
 %setup -q -n %{name}
 
 %build
 %make -f mk/Linux CFLAGS='%optflags -DUSE_BPF=\"pcap-bpf.h\"'
 
 %install
-%__install -d $RPM_BUILD_ROOT{%{_sysconfdir}/sysconfig,%{_sysconfdir}/%{name},%{_initrddir}}
-%__install -d $RPM_BUILD_ROOT/%{_bindir}
-%__install -d $RPM_BUILD_ROOT/%{_sbindir}
-%__install -d $RPM_BUILD_ROOT/%{_mandir}/man1/
-%__cp -p p0f.fp $RPM_BUILD_ROOT/%{_sysconfdir}/%{name}
-bzcat %{SOURCE1} > $RPM_BUILD_ROOT/%{_initrddir}/%{name}
-bzcat %{SOURCE2} > $RPM_BUILD_ROOT/%{_sysconfdir}/sysconfig/%{name}
+%__install -d %{buildroot}{%{_sysconfdir}/sysconfig,%{_sysconfdir}/%{name},%{_initrddir}}
+%__install -d %{buildroot}/%{_bindir}
+%__install -d %{buildroot}/%{_sbindir}
+%__install -d %{buildroot}/%{_mandir}/man1/
+%__cp -p p0f.fp %{buildroot}/%{_sysconfdir}/%{name}
+bzcat %{SOURCE1} > %{buildroot}/%{_initrddir}/%{name}
+bzcat %{SOURCE2} > %{buildroot}/%{_sysconfdir}/sysconfig/%{name}
 
 # ugly hack, to correct the fact that p0f doesn't go by himself in the background.
 # easier to code than a patch ( at least, for me )
@@ -60,14 +60,14 @@ com=$!
 sleep 3
 # if the command is still here( ie not crashed )
 # grep will return a good return value
-ps | awk "{print \$1}" | grep $com 1>/dev/null 2>&1'> $RPM_BUILD_ROOT/%{_sbindir}/%{daemon}
-chmod +x $RPM_BUILD_ROOT/%{_sbindir}/%{daemon}
+ps | awk "{print \$1}" | grep $com 1>/dev/null 2>&1'> %{buildroot}/%{_sbindir}/%{daemon}
+chmod +x %{buildroot}/%{_sbindir}/%{daemon}
 
-%__cp -p p0f p0frep $RPM_BUILD_ROOT/%{_bindir}
-%__cp -p p0f.1 $RPM_BUILD_ROOT/%{_mandir}/man1/
+%__cp -p p0f p0frep %{buildroot}/%{_bindir}
+%__cp -p p0f.1 %{buildroot}/%{_mandir}/man1/
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root,755)
@@ -87,4 +87,5 @@ rm -rf $RPM_BUILD_ROOT
 
 %preun
 %_preun_service %{name}
+
 
