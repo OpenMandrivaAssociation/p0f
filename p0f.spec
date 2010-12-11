@@ -1,6 +1,6 @@
 %define name p0f
 %define version 2.0.8
-%define release %mkrel 7
+%define release %mkrel 8
 %define daemon %{name}d
 
 # TODO
