@@ -1,6 +1,6 @@
 %define name p0f
 %define version 2.0.8
-%define release %mkrel 8
+%define release %mkrel 7
 %define daemon %{name}d
 
 # TODO
@@ -88,4 +88,67 @@ rm -rf %{buildroot}
 %preun
 %_preun_service %{name}
 
+
+
+
+%changelog
+* Mon Sep 14 2009 Thierry Vignaud <tvignaud@mandriva.com> 2.0.8-7mdv2010.0
++ Revision: 440468
+- rebuild
+
+* Tue Mar 10 2009 Emmanuel Andry <eandry@mandriva.org> 2.0.8-6mdv2009.1
++ Revision: 353465
+- fix initscript (#26333)
+
+* Wed Oct 29 2008 Oden Eriksson <oeriksson@mandriva.com> 2.0.8-5mdv2009.1
++ Revision: 298327
+- rebuilt against libpcap-1.0.0
+
+* Wed Jul 23 2008 Thierry Vignaud <tvignaud@mandriva.com> 2.0.8-4mdv2009.0
++ Revision: 241131
+- rebuild
+- kill re-definition of %%buildroot on Pixel's request
+
+  + Olivier Blin <oblin@mandriva.com>
+    - restore BuildRoot
+
+* Thu Aug 23 2007 Thierry Vignaud <tvignaud@mandriva.com> 2.0.8-2mdv2008.0
++ Revision: 70388
+- fileutils, sh-utils & textutils have been obsoleted by coreutils a long time ago
+
+
+* Wed Sep 06 2006 Olivier Thauvin <nanardon@mandriva.org>
++ 2006-09-06 17:46:41 (60384)
+- 2.0.8
+
+* Wed Sep 06 2006 Olivier Thauvin <nanardon@mandriva.org>
++ 2006-09-06 17:41:27 (60383)
+Import p0f
+
+* Fri Mar 10 2006 Olivier Thauvin <nanardon@mandriva.org> 2.0.6-2mdk
+- fix prereq
+
+* Fri Mar 10 2006 Olivier Thauvin <nanardon@mandriva.org> 2.0.6-1mdk
+- 2.0.6
+
+* Wed Jul 13 2005 Oden Eriksson <oeriksson@mandriva.com> 2.0.5-3mdk
+- rebuilt against new libpcap-0.9.1 (aka. a "play safe" rebuild)
+
+* Sat Apr 16 2005 Giuseppe Ghibò <ghibo@mandriva.com> 2.0.5-2mdk
+- removed libpcap0 explicit requires (for X86-64).
+
+* Tue Sep 14 2004 Olivier Thauvin <thauvin@aerov.jussieu.fr> 2.0.5-1mdk
+* Mon Jul 12 2004 Tibor Pittich <Tibor.Pittich@mandrake.org> 2.0.4-2mdk
+- corect location of fingerprint file
+- added man page
+
+* Sun Jul 11 2004 Michael Scherer <misc@mandrake.org> 2.0.4-1mdk
+- New release 2.0.4
+- use the good tarball
+
+* Mon Apr 26 2004 Olivier Thauvin <thauvin@aerov.jussieu.fr> 2.0.3-2mdk
+- patch0 (renamed pcap include) Bug #9600
+
+* Mon Nov 03 2003 Olivier Thauvin <thauvin@aerov.jussieu.fr> 2.0.3-1mdk
+- 2.0.3
 
