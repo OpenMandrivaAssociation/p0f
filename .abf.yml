@@ -1,4 +1,3 @@
 sources:
-  "p0f-2.0.8.tar.bz2": 85a1f4bd173dac987d5b8db230806bfce7b3747e
-  "p0f.init.mdk.bz2": 70ca2cbfef3acc9c7595905b619bd21958c37dc8
-  "p0f.sysconfig.bz2": ccde49530e9ada4c0e20d766537f336f6c4584d9
+  p0f-2.0.8.tar.bz2: 85a1f4bd173dac987d5b8db230806bfce7b3747e
+  p0f-3.06b.tgz: fecc9ed8b79dbf8e4d5ffbd22eda9d850b42c3c3

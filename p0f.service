@@ -1,0 +1,11 @@
+[Unit]
+Description=p0f Passive OS fingerprinting service
+After=syslog.target network.target
+
+[Service]
+Type=forking
+EnvironmentFile=/etc/sysconfig/p0f
+ExecStart=/usr/sbin/p0f -d -u p0f $NETINT $LOGFILE $APIFILE $OPTIONS
+
+[Install]
+WantedBy=multi-user.target
