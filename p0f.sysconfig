@@ -2,5 +2,5 @@
 # Command line API service options for p0f...
 NETINT="-i eth0"
 LOGFILE="-o /var/log/p0f.log"
-APIFILE="-o /tmp/p0f.sock"
+APIFILE="-s /tmp/p0f.sock"
 OPTIONS="-p -S 40 -m 1000,10000 -t 30,120"

@@ -1,6 +1,6 @@
 Name:       p0f
-Version:    3.06b
-Release:    3
+Version:    3.07b
+Release:    1
 Summary:    Passive OS fingerprinting tool
 License:    GPL
 Group:      Networking/Other
@@ -24,11 +24,24 @@ this host.
 %make CFLAGS='%{optflags} -DFP_FILE="%{_sysconfdir}/%{name}/p0f.fp"'
 
 %install
-
 install -D -m 755 p0f %{buildroot}%{_sbindir}/p0f
 install -D -m 644 p0f.fp %{buildroot}%{_sysconfdir}/%{name}/%{name}.fp
 install -D -m 644 %{SOURCE1} %{buildroot}%{_unitdir}/p0f.service
 install -D -m 644 %{SOURCE2} %{buildroot}%{_sysconfdir}/sysconfig/p0f
+mkdir -p %{buildroot}/var/run/%{name}
+
+%pre
+%_pre_useradd %{name} /var/run/%{name} /bin/false
+
+%post
+%systemd_post %{name}.service
+
+%preun
+%systemd_preun %{name}.service
+
+%postun
+%systemd_postun_with_restart %{name}.service
+%_postun_userdel %{name}
 
 %files
 %doc docs/*
@@ -37,6 +50,4 @@ install -D -m 644 %{SOURCE2} %{buildroot}%{_sysconfdir}/sysconfig/p0f
 %config(noreplace) %{_sysconfdir}/sysconfig/p0f
 %{_unitdir}/p0f.service
 %{_sbindir}/p0f
-
-
-
+/var/run/%{name}
