@@ -1,6 +1,6 @@
 Name:       p0f
 Version:    3.07b
-Release:    2
+Release:    3
 Summary:    Passive OS fingerprinting tool
 License:    GPL
 Group:      Networking/Other
