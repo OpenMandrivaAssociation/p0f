@@ -4,7 +4,7 @@ Release:    3
 Summary:    Passive OS fingerprinting tool
 License:    GPL
 Group:      Networking/Other
-URL:        http://lcamtuf.coredump.cx/p0f.shtml
+URL:        https://lcamtuf.coredump.cx/p0f.shtml
 Source0:    http://lcamtuf.coredump.cx/p0f/%{name}-%{version}.tgz
 Source1:    p0f.service
 Source2:    p0f.sysconfig
