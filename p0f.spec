@@ -8,6 +8,7 @@ URL:        https://lcamtuf.coredump.cx/p0f.shtml
 Source0:    http://lcamtuf.coredump.cx/p0f/%{name}-%{version}.tgz
 Source1:    p0f.service
 Source2:    p0f.sysconfig
+BuildRequires:	make
 BuildRequires: pcap-devel
 
 %description
